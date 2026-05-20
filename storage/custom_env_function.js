@@ -12,6 +12,8 @@ const custom_env={
     brevo_login:process.env.BREVO_LOGIN,
     brevo_password:process.env.BREVO_PASSWORD,
     brevo_api_key:process.env.BREVO_API_KEY,
+    admin_code:process.env.ADMIN_CODE,
+    token_key:process.env.TOKEN_KEY,
 };
 
 //export the file
