@@ -1,6 +1,7 @@
 //import some libraries and files
 import jwt from "jsonwebtoken";
 import custom_env from "../storage/custom_env_function.js";
+import logger from "../logger/logger.js";
 
 //crete function
 const token_verification = (req, res, next) => {
@@ -17,7 +18,7 @@ const token_verification = (req, res, next) => {
     }
 
     //remove bearer
-    const token = headers.split("")[1];
+    const token = headers.split(" ")[1];
 
     //checking conditions
     if (!token) {

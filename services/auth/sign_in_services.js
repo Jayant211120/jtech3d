@@ -23,12 +23,12 @@ const sign_in = async(req,res)=>{
         }
 
         //verify the password
-        const compare_password =bcrypt.compare(password,existingEmail.password);
+        const hashedPassword = await bcrypt.compare(password,existingEmail.password);
 
-        //checking condition
-        if(!compare_password){
-            res.status(400).json({status:false,message:"Invalid Credentials"});
-            logger.warn("Invalid Credentials");
+        //checking conditions
+        if(!hashedPassword){
+            res.status(400).json({status:false,message:"Invalid credentials"});
+            logger.warn("Invalid credentials");
             return;
         }
 

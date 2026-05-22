@@ -8,6 +8,8 @@ import express from "express";
 import nodemailer from "nodemailer";
 import custom_env from "../../storage/custom_env_function.js";
 import token_verification from "../../middlewares/token_verification.js";
+import forgotPassword from "../../controllers/auth/forgot_password_controller.js";
+import resetPassword from "../../controllers/auth/reset_password_controller.js";
 
 //create instance variable
 const router=express.Router();
@@ -18,6 +20,8 @@ router.post("/resendOtp",resendOtp);
 router.post("/email_verification",email_verification);
 router.post("/signUp",signUp);
 router.post("/signIn",signIn);
+router.post("/forgotPassword",token_verification,forgotPassword);
+router.post("/resetPassword",resetPassword);
 
 //export the file
 export default router;

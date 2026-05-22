@@ -35,6 +35,11 @@ const sign_up=async(req,res)=>{
             if(code == custom_env.admin_code){
                 userRole = 'admin';
             }
+            else{
+                res.status(400).json({status:false,message:"Enter valid admin code"});
+                logger.warn("Enter valid admin code");
+                return;
+            }
         }
 
         //hash the password
