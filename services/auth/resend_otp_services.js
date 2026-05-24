@@ -2,6 +2,7 @@
 import evm from "../../models/auth/email_verification.js";
 import {generateOtp,generateOtpExpired} from "../../storage/constants.js";
 import logger from "../../logger/logger.js";
+import send_email from "../../utils/email_config/email_config.js";
 
 //create function
 const resend_otp=async(req,res)=>{
@@ -29,6 +30,9 @@ const resend_otp=async(req,res)=>{
 
         //save the model
         await existing_email.save();
+
+        //send the mail
+        await send_email(email,"OTP is:",`OTP is:${otp}`);
 
         //response
         res.status(200).json({status:true,message:"OTP resend successfully",data:existing_email});
