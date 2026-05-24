@@ -9,7 +9,7 @@ const forgotPassword = async(req,res)=>{
     //use exception handling for handling the errors
     try{
         //create variables
-        const {email} = req.body;
+        const {email} = req.user.email;
         const otp = generateOtp();
         const otpExpired = generateOtpExpired();
 

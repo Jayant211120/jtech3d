@@ -20,7 +20,7 @@ router.post("/resendOtp",resendOtp);
 router.post("/email_verification",email_verification);
 router.post("/signUp",signUp);
 router.post("/signIn",signIn);
-router.post("/forgotPassword",forgotPassword);
+router.post("/forgotPassword",token_verification,forgotPassword);
 router.post("/resetPassword",resetPassword);
 
 //export the file
