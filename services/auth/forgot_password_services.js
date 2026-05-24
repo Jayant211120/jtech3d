@@ -38,7 +38,7 @@ const forgotPassword = async(req,res)=>{
         await send_email(email,"OTP is",`OTP is:${otp}`);
 
         //response
-        res.status(200).json({status:200,message:"Forgot Password Successfully",data:existingEmail});
+        res.status(200).json({status:true,message:"Forgot Password Successfully",data:existingEmail});
         logger.info("Forgot Password Successfully");
 
     }catch(err){
