@@ -9,12 +9,12 @@ const forgotPassword = async(req,res)=>{
     //use exception handling for handling the errors
     try{
         //create variables
-        const {email} = req.user.email;
+        let email;
         const otp = generateOtp();
         const otpExpired = generateOtpExpired();
 
         //checking user email exist or not
-        const existingEmail = await evm.findOne({email});
+        const existingEmail = await evm.findOne({isVerified:true});
 
         //checking conditions
         if(!existingEmail){
@@ -22,6 +22,9 @@ const forgotPassword = async(req,res)=>{
             logger.warn("User Not Exist");
             return;
         }
+
+        //put the email through already existing email
+        email=existingEmail.email;
 
         //update the data
         existingEmail.otp = otp;
