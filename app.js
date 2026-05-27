@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 import db from "./config/connectivity/db_connection.js";
 import authRoutes from "./routers/auth/auth_routes.js";
+import model from "./routers/model/model_route.js";
 
 //create instance variable
 const app=express();
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth/v1",authRoutes);
+app.use("/model/v1",model);
 
 //export the file
 export default app;

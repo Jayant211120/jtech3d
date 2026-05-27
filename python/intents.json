@@ -1,0 +1,9 @@
+{
+    "intents":[
+        {
+            "tag":"jtech3d",
+            "patterns":["what is jtech3d","jtech3d kya hai"],
+            "responses":["jtech3d is a 3d printing company"]
+        }
+    ]
+}
